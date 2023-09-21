@@ -59,13 +59,12 @@ import {
   HiViewBoards,
   HiX,
 } from "react-icons/hi";
-import Header from "./components/header";
-import Sidebar from "./components/sidebar";
-import { SidebarProvider } from "./context/SidebarContext";
+
+import Header from "@/app/components/header";
+import Sidebar from "@/app/components/sidebar";
+import { SidebarProvider } from "@/app/context/SidebarContext";
 import Link from "next/link";
 
-
-import DashboardPage from '@/app/components/dashboard'
 const navigationMenu = [
   { name: "Dashboard", href: "/" },
   { name: "Products", href: "/products" },
@@ -75,30 +74,35 @@ const navigationMenu = [
   { name: "Login", href: "/login" },
 ];
 
-export default function Index(): JSX.Element {
+export default function ActualSidebar(): JSX.Element {
   return (
-    <main>
-          <DashboardPage />
-      
-    </main>
+    <Sidebar>
+      <Sidebar.Items>
+        <Sidebar.ItemGroup>
+
+          {navigationMenu.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="text-sm font-semibold leading-6 text-gray-900"
+            >
+              <Sidebar.Item icon={HiChartPie}>{item.name}</Sidebar.Item>
+            </Link>
+          ))}
+        </Sidebar.ItemGroup>
+
+        <Sidebar.ItemGroup>
+          <Sidebar.Item href="#" icon={HiChartPie}>
+            My Profile
+          </Sidebar.Item>
+          <Sidebar.Item href="#" icon={HiViewBoards}>
+            Settings
+          </Sidebar.Item>
+          <Sidebar.Item href="#" icon={BiBuoy}>
+            Auth
+          </Sidebar.Item>
+        </Sidebar.ItemGroup>
+      </Sidebar.Items>
+    </Sidebar>
   );
 }
-
-// export default function Index(): JSX.Element {
-//   return (
-//     <SidebarProvider>
-//       <Header />
-//       <div className="flex dark:bg-gray-900">
-//         <main className="order-2 mx-4 mt-4 mb-24 flex-[1_0_16rem]">
-//           {/* <DashboardPage /> */}
-//         </main>
-//         <div className="order-1">
-//           <ActualSidebar />
-//         </div>
-//       </div>
-//     </SidebarProvider>
-//   );
-// }
-
-
-
