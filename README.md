@@ -298,6 +298,41 @@ export async function DELETE(
 
 
 
+## Create AUthetication JWT for API Route
+```
+yarn add @prisma/client zod bcryptjs jose
+yarn add -D prisma @types/bcryptjs
+```
+
+> #### **About libraries**
+> @prisma/client – A library that connects to the Prisma server and allows for reading, writing, and streaming data in the database.
+> prisma – A command-line interface for interacting with a Prisma project.
+> zod – A TypeScript-first schema validation library.
+> bcryptjs – A library for hashing and comparing passwords.
+> @types/bcryptjs – A library that provides type definitions for the bcryptjs package.
+> jose – A library for generating and verifying JSON Web Tokens (JWTs) and encrypting and decrypting data using JSON Web Encryption (JWE).
+
+
+### **Cretae Model User in scheme like below:**
+```
+model User {
+  id        String    @id @unique @default(uuid())
+  name      String
+  email     String    @unique
+  password  String
+  role      String?   @default("user")
+  photo     String?   @default("default.png")
+  verified  Boolean?  @default(false)
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+}
+```
+#### **run migrate**
+```
+yarn prisma migrate dev --name init
+```
+
+
 http://localhost:5566/api/users
 
 

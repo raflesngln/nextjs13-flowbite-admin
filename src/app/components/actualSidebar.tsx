@@ -66,13 +66,15 @@ import { SidebarProvider } from "@/app/context/SidebarContext";
 import Link from "next/link";
 
 const navigationMenu = [
-  { icon:'HiChartPie', name: "Dashboard", href: "/" },
-  { icon:'BiBuoy', name: "Products", href: "/products" },
-  { icon:'HiViewBoards', name: "Posts", href: "/posts" },
-  { icon:'BiBuoy', name: "Departemen", href: "/departemen" },
-  { icon:'BiBuoy', name: "User Prisma", href: "/user_prisma" },
-  { icon:'HiViewBoards', name: "Login", href: "/login" },
+  { icon:HiChartPie, name: "Dashboard", href: "/" },
+  { icon:BiBuoy, name: "Products", href: "/products" },
+  { icon:HiViewBoards, name: "Posts", href: "/posts" },
+  { icon:BiBuoy, name: "Departemen", href: "/departemen" },
+  { icon:BiBuoy, name: "User Prisma", href: "/user_prisma" },
+  { icon:HiViewBoards, name: "Login", href: "/login" },
 ];
+
+const myicon='HiChartPie'
 
 export default function ActualSidebar(): JSX.Element {
   return (
@@ -86,7 +88,7 @@ export default function ActualSidebar(): JSX.Element {
               href={item.href}
               className="text-sm font-semibold leading-6 text-gray-900"
             >
-              <Sidebar.Item icon={HiChartPie}>{item.name}</Sidebar.Item>
+              <Sidebar.Item icon={item.icon }>{item.name}</Sidebar.Item>
             </Link>
           ))}
         </Sidebar.ItemGroup>

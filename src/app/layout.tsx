@@ -6,8 +6,8 @@ import { DarkThemeToggle, Flowbite } from "flowbite-react";
 import useDarkMode from '@/app/components/darkmodeConfig'; // Import the custom hook
 
 
+import ProvidersReactQuery from "@/lib/provider";
 import Header from "@/app/components/header";
-import Sidebar from "@/app/components/sidebar";
 import { SidebarProvider } from "@/app/context/SidebarContext";
 import ActualSidebar from "@/app/components/actualSidebar";
 
@@ -18,6 +18,8 @@ const RootLayout: FC<PropsWithChildren> = function ({ children }) {
     <html lang="en">
       <body>
         {/* <FlowbiteContext>{children}</FlowbiteContext> */}
+        <ProvidersReactQuery>
+
         <FlowbiteContext >
           {/* <DarkThemeToggle dark={darkMode ? 'dark' : ''} onClick={toggleDarkMode} /> */}
           <SidebarProvider>
@@ -32,6 +34,7 @@ const RootLayout: FC<PropsWithChildren> = function ({ children }) {
             </div>
           </SidebarProvider>
         </FlowbiteContext>
+        </ProvidersReactQuery>
       </body>
     </html>
   );
