@@ -66,12 +66,12 @@ import { SidebarProvider } from "@/app/context/SidebarContext";
 import Link from "next/link";
 
 const navigationMenu = [
-  { name: "Dashboard", href: "/" },
-  { name: "Products", href: "/products" },
-  { name: "Posts", href: "/posts" },
-  { name: "Departemen", href: "/departemen" },
-  { name: "User Prisma", href: "/user_prisma" },
-  { name: "Login", href: "/login" },
+  { icon:'HiChartPie', name: "Dashboard", href: "/" },
+  { icon:'BiBuoy', name: "Products", href: "/products" },
+  { icon:'HiViewBoards', name: "Posts", href: "/posts" },
+  { icon:'BiBuoy', name: "Departemen", href: "/departemen" },
+  { icon:'BiBuoy', name: "User Prisma", href: "/user_prisma" },
+  { icon:'HiViewBoards', name: "Login", href: "/login" },
 ];
 
 export default function ActualSidebar(): JSX.Element {

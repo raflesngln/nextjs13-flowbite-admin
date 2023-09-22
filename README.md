@@ -35,6 +35,11 @@ yarn add -D prisma
 yarn prisma init --datasource-provider mysql
 ```
 
+#### **Edit file .env depends on your database configuration**
+```
+DATABASE_URL="mysql://attgroup:att123@localhost:3306/nextjs13_fullstack"
+```
+
 
 #### **Add model to scheme.prisma**
 

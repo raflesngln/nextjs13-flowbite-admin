@@ -1,17 +1,21 @@
 "use client";
 
-import { DarkThemeToggle, Navbar } from "flowbite-react";
+import { DarkThemeToggle, Navbar ,Flowbite} from "flowbite-react";
 import Image from "next/image";
 import { FC } from "react";
 import { useSidebarContext } from "../context/SidebarContext";
 
+import useDarkMode from '@/app/components/darkmodeConfig'; // Import the custom hook
+
+
 const Header: FC<Record<string, never>> = function () {
+  const [darkMode, toggleDarkMode] = useDarkMode();
   const { isOpenOnSmallScreens, isPageWithSidebar, setOpenOnSmallScreens } =
     useSidebarContext();
 
   return (
     <header className="sticky top-0 z-20">
-      <Navbar fluid>
+      <Navbar fluid >
         {isPageWithSidebar && (
           <button
             aria-controls="sidebar"
@@ -55,7 +59,7 @@ const Header: FC<Record<string, never>> = function () {
             src="/favicon.png"
             width="24"
           />
-          <span className="self-center whitespace-nowrap px-3 text-xl font-semibold dark:text-white">
+          <span className=" self-center whitespace-nowrap px-3 text-xl font-semibold dark:text-white">
             NEXTJS 13 FLOWBITE
           </span>
         </Navbar.Brand>
@@ -63,11 +67,12 @@ const Header: FC<Record<string, never>> = function () {
           <Navbar.Toggle />
           <DarkThemeToggle />
         </div>
+
         <Navbar.Collapse>
           <Navbar.Link href="/" active>
             Dashboard
           </Navbar.Link>
-          <Navbar.Link href="/">About</Navbar.Link>
+          <Navbar.Link href="/">Abouts</Navbar.Link>
           {/* <Navbar.Link href="/">Services</Navbar.Link>
           <Navbar.Link href="/">Pricing</Navbar.Link> */}
           <Navbar.Link href="/">Contact</Navbar.Link>
