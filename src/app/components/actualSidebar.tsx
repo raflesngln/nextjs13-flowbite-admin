@@ -26,7 +26,7 @@ import {
   TextInput,
   Timeline,
   Toast,
-  Tooltip
+  Tooltip,
 } from "flowbite-react";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -59,6 +59,8 @@ import {
   HiViewBoards,
   HiX,
 } from "react-icons/hi";
+// import { useRouter } from "next/navigation";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 import Header from "@/app/components/header";
 import Sidebar from "@/app/components/sidebar";
@@ -66,59 +68,79 @@ import { SidebarProvider } from "@/app/context/SidebarContext";
 import Link from "next/link";
 
 const navigationMenu = [
-  { icon:HiChartPie, name: "Dashboard", href: "/" },
-  { icon:BiBuoy, name: "Products", href: "/products" },
-  { icon:HiViewBoards, name: "Posts", href: "/posts" },
-  { icon:BiBuoy, name: "Departemen", href: "/departemen" },
-  { icon:BiBuoy, name: "User Prisma", href: "/user_prisma" },
-  { icon:HiViewBoards, name: "Login", href: "/login" },
+  { icon: HiChartPie, name: "Dashboard", href: "/" },
+  { icon: BiBuoy, name: "Products", href: "/products" },
+  { icon: HiViewBoards, name: "Posts", href: "/posts" },
+  { icon: BiBuoy, name: "Departemen", href: "/departemen" },
+  { icon: BiBuoy, name: "User Prisma", href: "/user_prisma" },
+];
+const navigationMenu2 = [
+  { icon: HiChartPie, name: "My-profile", href: "/my-profile" },
+  { icon: BiBuoy, name: "Settings", href: "/settings" },
+  { icon: HiViewBoards, name: "Preference", href: "/preference" },
+  { icon: HiViewBoards, name: "Login", href: "/login" },
 ];
 
-const myicon='HiChartPie'
+const myicon = "HiChartPie";
 
 export default function ActualSidebar(): JSX.Element {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const realPathname = pathname.replace(/\//, "");
+
   return (
     <Sidebar>
       <Sidebar.Items>
         <Sidebar.ItemGroup>
-
+          {/* color:item.href==pathname?'#038196' */}
           {navigationMenu.map((item) => (
             <Link
               key={item.name}
               href={item.href}
               className="text-sm font-semibold leading-6 text-gray-900"
             >
-              <Sidebar.Item icon={item.icon }>{item.name}</Sidebar.Item>
+              <Sidebar.Item
+                className="`text-gray-800`"
+                style={{
+                  background: item.href == pathname ? "#b8ebed" : "none",
+                }}
+                icon={item.icon}
+              >
+                {item.name}
+              </Sidebar.Item>
             </Link>
           ))}
         </Sidebar.ItemGroup>
 
         <Sidebar.ItemGroup>
-        <Sidebar.Collapse
-            icon={HiShoppingBag}
-            label="E-commerce"
-          >
-            <Sidebar.Item href="#">
-              Products
-            </Sidebar.Item>
-            <Sidebar.Item href="#">
-              Sales
-            </Sidebar.Item>
-            <Sidebar.Item href="#">
-              Refunds
-            </Sidebar.Item>
-            <Sidebar.Item href="#">
-              Shipping
-            </Sidebar.Item>
+          <Sidebar.Collapse icon={HiShoppingBag} label="E-commerce">
+            <Sidebar.Item href="#">Products</Sidebar.Item>
+            <Sidebar.Item href="#">Sales</Sidebar.Item>
+            <Sidebar.Item href="#">Refunds</Sidebar.Item>
+            <Sidebar.Item href="#">Shipping</Sidebar.Item>
           </Sidebar.Collapse>
-          <Sidebar.Item href="#" icon={HiChartPie}>
-            My Profile
-          </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiViewBoards}>
-            Settings
-          </Sidebar.Item>
+
+          {navigationMenu2.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="text-sm font-semibold leading-6 text-gray-900"
+            >
+              <Sidebar.Item
+                className="`text-gray-800`"
+                style={{
+                  background: item.href == pathname ? "#b8ebed" : "none",
+                }}
+                icon={item.icon}
+              >
+                {item.name}
+              </Sidebar.Item>
+            </Link>
+          ))}
+
           <Sidebar.Item href="#" icon={BiBuoy}>
-            Auth
+            Log Out
           </Sidebar.Item>
         </Sidebar.ItemGroup>
       </Sidebar.Items>
