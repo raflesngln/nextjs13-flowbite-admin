@@ -12,7 +12,6 @@ export async function GET(
   request: Request,
   { params }: { params: { id: string } }
 ): Promise<NextResponse> {
-
   try {
     const id = params.id;
     const user = await prisma.user.findUnique({
@@ -50,7 +49,6 @@ export async function PUT(
   }
 }
 
-
 export async function DELETE(
   request: Request,
   { params }: { params: { id: string } }
@@ -61,7 +59,9 @@ export async function DELETE(
       where: { id: parseInt(id, 10) }, // Ensure 'id' is a number
     });
 
-    return new NextResponse(`Data dengan ID User ('${id}') berhasil di Hapus`, { status: 200 });
+    return new NextResponse(`Data dengan ID User ('${id}') berhasil di Hapus`, {
+      status: 200,
+    });
   } catch (error: any) {
     if (error.code === "P2025") {
       return new NextResponse("No user with ID found", { status: 404 });
