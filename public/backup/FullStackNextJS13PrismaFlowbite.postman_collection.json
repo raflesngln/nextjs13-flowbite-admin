@@ -1,0 +1,281 @@
+{
+	"info": {
+		"_postman_id": "4244e7c4-0303-4b8e-bcc4-5861a1471e63",
+		"name": "FullStackNextJS13PrismaFlowbite",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "133223",
+		"_collection_link": "https://blue-spaceship-1655.postman.co/workspace/HRIS~2d86d336-285a-4b77-8e7e-42bdb5076185/collection/133223-4244e7c4-0303-4b8e-bcc4-5861a1471e63?action=share&source=collection_link&creator=133223"
+	},
+	"item": [
+		{
+			"name": "AUTH",
+			"item": [
+				{
+					"name": "ME",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5566/api/auth/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5566",
+							"path": [
+								"api",
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"anton@admin.com\",\n    \"name\": \"anton\",\n    \"password\": \"password123\",\n    \"passwordConfirm\": \"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5566/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5566",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@admin.com\",\n    \"password\": \"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5566/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5566",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@admin.com\",\n    \"name\": \"Admin\",\n    \"password\": \"password123\",\n    \"passwordConfirm\": \"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5566/api/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5566",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "USERS",
+			"item": [
+				{
+					"name": "Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5566/api/users-prisma?page=1&per_page=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5566",
+							"path": [
+								"api",
+								"users-prisma"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5566/api/users-prisma/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5566",
+							"path": [
+								"api",
+								"users-prisma",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post New User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"name\": \"andi\",\n        \"email\": \"andi@admin.com\",\n        \"role\": \"admin\",\n        \"password\": \"121324131\",\n        \"phone\": \"98645968\"\n    }\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5566/api/users-prisma",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5566",
+							"path": [
+								"api",
+								"users-prisma"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"name\": \"maya\",\n        \"email\": \"maya@admin.com\",\n        \"role\": \"admin\",\n        \"password\": \"666666\",\n        \"phone\": \"777777\"\n    }\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5566/api/users-prisma/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5566",
+							"path": [
+								"api",
+								"users-prisma",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"reset number Autoincrement\":\"ALTER TABLE tablename AUTO_INCREMENT = 1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5566/api/users-prisma/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5566",
+							"path": [
+								"api",
+								"users-prisma",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
