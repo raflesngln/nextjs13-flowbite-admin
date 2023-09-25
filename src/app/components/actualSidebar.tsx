@@ -26,7 +26,7 @@ import {
   TextInput,
   Timeline,
   Toast,
-  Tooltip,
+  Tooltip
 } from "flowbite-react";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -94,6 +94,23 @@ export default function ActualSidebar(): JSX.Element {
         </Sidebar.ItemGroup>
 
         <Sidebar.ItemGroup>
+        <Sidebar.Collapse
+            icon={HiShoppingBag}
+            label="E-commerce"
+          >
+            <Sidebar.Item href="#">
+              Products
+            </Sidebar.Item>
+            <Sidebar.Item href="#">
+              Sales
+            </Sidebar.Item>
+            <Sidebar.Item href="#">
+              Refunds
+            </Sidebar.Item>
+            <Sidebar.Item href="#">
+              Shipping
+            </Sidebar.Item>
+          </Sidebar.Collapse>
           <Sidebar.Item href="#" icon={HiChartPie}>
             My Profile
           </Sidebar.Item>
