@@ -101,7 +101,7 @@ export default function PageUsers() {
         <div>
           <h1>DATA USERS</h1>
           {/* <PopUpModal isOpen deleteDataProps={(e: any)=>deleteData(e)}/> */}
-          {/* <p>{JSON.stringify(setup)}</p> */}
+          
         </div>
 
         <div>
@@ -135,7 +135,7 @@ export default function PageUsers() {
           </div>
 
         <Pagination
-          currentPage={11}
+          currentPage={currentPage}
           onPageChange={(page) => {
             setCurrentPage(page);
           }}
@@ -204,9 +204,8 @@ export default function PageUsers() {
         </Table.Body>
       </Table>
       <div className="flex flex-row justify-end p-5">
-        {/* <p>PAGE : {currentPage}</p> */}
         <Pagination
-          currentPage={11}
+          currentPage={currentPage}
           onPageChange={(page) => {
             setCurrentPage(page);
           }}

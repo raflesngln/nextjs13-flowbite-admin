@@ -5,6 +5,7 @@ import "./globals.css";
 import { DarkThemeToggle, Flowbite } from "flowbite-react";
 import useDarkMode from '@/app/components/darkmodeConfig'; // Import the custom hook
 
+import Provider from "@/app/context/client-provider"
 
 import ProvidersReactQuery from "@/lib/provider";
 import Header from "@/app/components/header";
@@ -26,6 +27,7 @@ const RootLayout: FC<PropsWithChildren> = function ({ children }) {
             <Header />
             <div className="flex dark:bg-gray-900">
               <main className="order-2 mx-4 mt-4 mb-24 flex-[1_0_16rem]">
+                
                 {children}
               </main>
               <div className="order-1">
